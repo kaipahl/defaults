@@ -3,23 +3,23 @@
         "browser": true
     },
     "rules": {
-        "strict": false,
-        "no-multi-spaces": false,
+        "strict": 0,
+        "no-multi-spaces": 0,
         "quotes": [1, "single", "avoid-escape"],
-        "no-underscore-dangle": false,
-        "no-console": false,
-        "no-debugger": false,
-        "no-space-before-semi": false,
-        "no-spaced-func": false,
+        "no-underscore-dangle": 0,
+        "no-console": 0,
+        "no-debugger": 0,
+        "no-space-before-semi": 0,
+        "no-spaced-func": 0,
         "no-unused-vars": [2, {
             "vars": "local",
             "args": "after-used"
         }],
-        "no-loop-func": "1",
-        "no-use-before-define": false,
-        "no-shadow": false,
-        "key-spacing": false,
-        "new-cap": false
+        "no-loop-func": 1,
+        "no-use-before-define": 0,
+        "no-shadow": 0,
+        "key-spacing": 0,
+        "new-cap": 0
     },
     "globals": {
         "console": true,

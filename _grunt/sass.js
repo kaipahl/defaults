@@ -1,20 +1,25 @@
-'use strict';
+/** ====== SCSS ======
+ *  - libsass/nodesass
+ */
+
+/* Not ready for production */
 
 module.exports = function (grunt) {
 	grunt.config('sass', {
 
-		dev: {
+		test: {
 			options: {
 				style: 'expanded',
-				debugInfo: false
+				debugInfo: false,
+				sourceMap: true
 			},
 			files: [{
-				src: 'src/_scss/foo.scss',
-				dest: 'dist/_css/foo.css'
+				src: 'source/_scss/foo.scss',
+				dest: 'public/_css/foo.css'
 			}]
 		}
 
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-sass');
 };

@@ -76,6 +76,22 @@ $colPadding: 1%;
 
 
 /**
+ * @mixin xx-reset-list
+ * @description Reset list styles by removing bullets and margins/paddings
+ */
+@mixin xx-reset-list {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	text-indent: 0;
+}
+.reset-list {
+	@include xx-reset-list;
+}
+
+
+
+/**
  * @mixin xx-hide-text
  * @description Hides text only by visibility, but stays readable for screenreaders
  */

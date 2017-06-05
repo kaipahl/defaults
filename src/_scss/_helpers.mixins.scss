@@ -1,10 +1,9 @@
 
 /**
- *  Generierung von .col-Classes für ein Grid-System
- *  Zwei Arten von Grid-Classes: mit und ohne eingebauten Margin
+ * @description quick'n'dirty grid system
  *
- *  @selector .col-xof12-nomargin
- *  @selector .col-xof12
+ * @selector .col-xof12-nomargin
+ * @selector .col-xof12
  */
 $numberOfCols: 12;
 $colSegment: 100 / $numberOfCols;
@@ -49,21 +48,6 @@ $colPadding: 1%;
 	width: 100%;
 	margin: 0;
 }
-.mobile-col-12of12 {
-
-	@include breakpoint(mobile) {
-		float: none;
-		width: 100%;
-		margin: 0;
-	}
-
-	@include breakpoint(mobile-sm) {
-		float: none;
-		width: 100%;
-		margin: 0;
-	}
-}
-
 
 @mixin width-of12 ($value) {
 	width: (($colSegment * $value) * 1%) - ($colPadding * 2);
@@ -73,37 +57,70 @@ $colPadding: 1%;
 
 
 /**
- *  Mixin: border-radius nur für die beiden oberen Ecken
- *  Nutzung: @include border-radius-top(3px)
- *
- *	@mixin border-radius-top
- *  @param $radius	Radius der runden Ecke
+ * @description clearfix() -- smalles possible clearfix solution, not compatible
+ * with very old IEs
  */
-@mixin border-radius-top($radius: 3px) {
+@mixin clearfix() {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+.clearfix {
+	@include clearfix();
+}
+%clearfix {
+	@include clearfix();
+}
+
+
+/**
+ * @mixin xx-hide-text
+ * @description Hides text only by visibility, but stays readable for screenreaders
+ */
+.xx-hide-text {
+	display: block;
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+
+
+/**
+ *	@mixin xx-border-radius-top
+ *  @description border-radius only for some corners
+ *  @param $radius
+
+ *  @example: @include xx-border-radius-top(3px)
+ */
+@mixin xx-border-radius-top ($radius: 3px) {
 	border-radius: $radius $radius 0 0;
 }
-@mixin border-radius-bottom($radius: 3px) {
+@mixin xx-border-radius-bottom ($radius: 3px) {
 	border-radius: 0 0 $radius $radius;
 }
 
 
 
 /**
- *  Mixin: triangle -- baut aus CSS Dreiecke ein. Verwendet dazu
- *  	in after:-generierten Content
+ *	@mixin xx-triangle
+ *  @description creates small triangles/arrows with CSS
  *
- *  @param $direction	String up, down, left, right
- *  @param $color		Farbwert des Pfeils
- *  @param $width 		Breite des Pfeils
- *  @param $height 		Höhe des Pfeils
- *	@example 			@include triangle(down, rgba($cGray, 0.4), 16px, 8px);
+ *  @param {string} $direction - 'up', 'down', 'left' or 'right'
+ *  @param $color
+ *  @param $width
+ *  @param $height
+ *	@example @include xx-triangle(down, rgba($cGray, 0.4), 16px, 8px);
  *
- *  @TODO: Code für links/rechts ist noch nicht getestet!
+ *  @TODO: Code for left/right untested
  */
-@mixin triangle($direction, $color, $width, $height) {
-	content: "";
-	width: 0px;
-	height: 0px;
+@mixin xx-triangle($direction, $color, $width, $height) {
+	content: '';
+	width: 0;
+	height: 0;
 	border-style: solid;
 	@if ($direction == up) {
 		border-color: transparent transparent $color transparent;
@@ -125,67 +142,28 @@ $colPadding: 1%;
 
 
 
-/**
- *  Setzen des box-sizing-Attributs
- *
- *	@mixin box-sizing
- *	@example @include box-sizing();
- */
-@mixin box-sizing() {
-	box-sizing: border-box;
-}
-
-
 
 /**
- *  Vertical-Alignment center/middle
+ * @mixin xx-align-middle
+ * @description vertical alignment middle
  *
- *	@mixin align-middle
- *	@example @include align-middle();
+ * @example @include xx-align-middle();
  */
-@mixin align-middle() {
+@mixin xx-align-middle() {
 	position: absolute;
 	top: 50%;
 	transform: translate(0, -50%);
 }
 
 /**
- *  Vertical/Horizontal-Alignment center/middle
+ * @mixin xx-align-center-middle
+ * @description vertical and horizontal alignment middle/center
  *
- *	@mixin align-center-middle
- *	@example @include align-center-middle();
+ * @example @include xx-align-center-middle();
  */
-@mixin align-center-middle() {
+@mixin xx-align-center-middle() {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-}
-
-
-@mixin clearfix() {
-	&:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
-}
-.clearfix {
-	@include clearfix();
-}
-%clearfix {
-	@include clearfix();
-}
-
-
-
-
-.xx-hide {
-	display: none;
-}
-.xx-hide-text {
-	display: block;
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
 }

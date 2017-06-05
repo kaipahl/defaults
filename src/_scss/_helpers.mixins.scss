@@ -21,14 +21,6 @@ $colPadding: 1%;
 		margin: 0 $colPadding;
 	}
 
-	.mobile-col-#{$i}of#{$numberOfCols} {
-		@include breakpoint(mobile) {
-			width: (($colSegment * $i) * 1%) - ($colPadding * 2);
-			float: left;
-			margin: 0 $colPadding;
-		}
-	}
-
 	.push-#{$i} {
 		position: relative;
 		left: ($colSegment * $i) * 1%;

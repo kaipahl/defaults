@@ -20,13 +20,19 @@ module.exports = function (grunt) {
      * 	Tasks
      */
 
-
-	grunt.registerTask('buildCss',
-		'- Konvertiert SCSS in CSS im dist-Verzeichnis\n- Läst Autoprefixer früber laufen\n', [
-			'sass:dev',
-			'postcss:dev'
-		]
-	);
+    grunt.registerTask('buildCss',
+        '- Konvertiert SCSS in CSS im dist-Verzeichnis\n- Läst Autoprefixer drüber laufen\n',
+        function( target ) {
+            if ( target === 'dev') {
+                grunt.task.run('sass:dev');
+                grunt.task.run('postcss:dev');
+            } else {
+                grunt.task.run('clean:css');
+                grunt.task.run('sass:dist');
+                grunt.task.run('postcss:dist');
+            }
+        }
+    );
 
 
 	grunt.registerTask('buildAll',
@@ -36,3 +42,4 @@ module.exports = function (grunt) {
 	);
 
 };
+

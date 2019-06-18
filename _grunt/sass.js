@@ -3,12 +3,14 @@
  */
 
 module.exports = function (grunt) {
+	'use strict';
+	const sass = require('node-sass');
 	grunt.config('sass', {
 
 		dev: {
 			options: {
+				implementation: sass,
 				outputStyle: 'expanded',
-				debugInfo: false,
 				sourceMap: true
 			},
 			files: [{
@@ -18,6 +20,7 @@ module.exports = function (grunt) {
 		},
         dist: {
             options: {
+	            implementation: sass,
                 outputStyle: 'compressed',
                 debugInfo: false,
                 sourceMap: false

@@ -1,26 +1,20 @@
-'use strict';
-
 /*  ====== POSTCSS ======
  *  - Automatisches Ergänzen von browserspezifische CSS-Prefixes
  *
  */
 module.exports = function (grunt) {
+	'use strict';
 
 	grunt.config('postcss', {
 		options: {
 			processors: [
-				require('autoprefixer')({
-					browsers: [ 'last 3 version', 'ie 9' ]
-				})
+				require('autoprefixer')
 			]
 		},
 
 		dev: {
 			options: {
-				map: {
-					inline: false, // save all sourcemaps as separate files...
-					annotation: 'dist/_css' // ...to the specified directory
-				}
+				map: true
 			},
 			files: [{
 				src: 'dist/_css/foo.css',
@@ -28,7 +22,7 @@ module.exports = function (grunt) {
 			}]
 		},
 
-		dev: {
+		dist: {
 			options: {
 				map: false
 			},

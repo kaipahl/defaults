@@ -18,7 +18,7 @@
 		"eqeqeq": "error",
 		"key-spacing": "error",
 		"new-cap": "error",
-		"no-console": "error",
+		"no-console": "warn",
 		"no-debugger": "error",
 		"no-eval": "error",
 		"no-loop-func": "error",
@@ -31,7 +31,6 @@
 			"vars": "local",
 			"args": "after-used"
 		}],
-		"no-use-before-define": "error",
 		"quotes": ["error", "single", {
 			"allowTemplateLiterals": true
 		}],
@@ -45,5 +44,8 @@
         "console": true,
         "jQuery": true,
         "$": true
-    }
+    },
+	"parserOptions": {
+		"sourceType": "module"
+	}
 }

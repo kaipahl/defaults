@@ -4,23 +4,43 @@
 		"es6": true
     },
     "rules": {
-        "strict": 0,
-        "no-multi-spaces": 0,
-        "quotes": [1, "single", "avoid-escape"],
-        "no-underscore-dangle": 0,
-        "no-console": 0,
-        "no-debugger": 0,
-        "no-space-before-semi": 0,
-        "no-spaced-func": 0,
-        "no-unused-vars": [2, {
-            "vars": "local",
-            "args": "after-used"
-        }],
-        "no-loop-func": 1,
-        "no-use-before-define": 0,
-        "no-shadow": 0,
-        "key-spacing": 0,
-        "new-cap": 0
+		"block-spacing": "error",
+		"comma-dangle": [ "error", {
+			"arrays": "never",
+			"exports": "never",
+			"functions": "never",
+			"imports": "never",
+			"objects": "never"
+		}],
+		"comma-spacing": "error",
+		"curly": "error",
+		"dot-notation": "error",
+		"eqeqeq": "error",
+		"key-spacing": "error",
+		"new-cap": "error",
+		"no-console": "error",
+		"no-debugger": "error",
+		"no-eval": "error",
+		"no-loop-func": "error",
+		"no-mixed-spaces-and-tabs": "error",
+		"no-multi-spaces": "error",
+		"no-shadow": "error",
+		"no-space-before-semi": "error",
+		"no-spaced-func": "error",
+		"no-underscore-dangle": "error",
+		"no-unused-vars": ["error", {
+			"vars": "local",
+			"args": "after-used"
+		}],
+		"no-use-before-define": "error",
+		"quotes": ["error", "single", {
+			"avoid-escape": true,
+			"allowTemplateLiterals": true
+		}],
+		"semi": "error",
+		"space-infix-ops": "error",
+		"space-unary-ops": "error",
+		"strict": 0
     },
     "globals": {
         "console": true,

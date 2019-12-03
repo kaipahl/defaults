@@ -48,3 +48,7 @@
 	7.Pages
 \* ------------------------------------ */
 
+
+.test-element {
+	appearance: none; // dummy to check for autoprefixer transpilation
+}

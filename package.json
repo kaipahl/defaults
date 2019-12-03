@@ -4,7 +4,9 @@
   "description": "Blueprint for project files",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "buildCss": "./_tasks/scss.js",
+    "buildPostcss": "postcss ./dist/_css/foo.css --use autoprefixer --map --replace",
+    "buildAll": "npm run buildCss && npm run buildPostcss"
   },
   "repository": {
     "type": "git",
@@ -20,14 +22,10 @@
   },
   "homepage": "https://github.com/kaipahl/defaults",
   "devDependencies": {
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.7.3",
     "eslint": "^6.1.0",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-postcss": "^0.9.0",
-    "grunt-sass": "~3.1.0",
-    "node-sass": "^4.12.0",
+    "postcss-cli": "^6.1.3",
+    "sass": "^1.23.7",
     "stylelint": "^10.1.0"
   }
 }

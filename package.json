@@ -4,6 +4,7 @@
   "description": "Blueprint for project files",
   "main": "index.js",
   "scripts": {
+    "copy": "./_tasks/copy.js",
     "buildCss": "./_tasks/scss.js",
     "buildPostcss": "postcss ./dist/_css/foo.css --use autoprefixer --map --replace",
     "buildAll": "npm run buildCss && npm run buildPostcss"
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/kaipahl/defaults",
   "devDependencies": {
     "autoprefixer": "^9.7.3",
+    "cpy": "^7.3.0",
     "eslint": "^6.1.0",
     "postcss-cli": "^6.1.3",
     "sass": "^1.23.7",

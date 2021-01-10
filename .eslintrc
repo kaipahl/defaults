@@ -1,9 +1,11 @@
 {
-    "env": {
-        "browser": true,
-		"es6": true
-    },
-    "rules": {
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true, // needed for 'require'
+		"mocha": true
+	},
+	"rules": {
 		"block-spacing": "error",
 		"comma-dangle": [ "error", {
 			"arrays": "never",
@@ -18,7 +20,7 @@
 		"eqeqeq": "error",
 		"key-spacing": "error",
 		"new-cap": "error",
-		"no-console": "warn",
+		"no-console": "off",
 		"no-debugger": "error",
 		"no-eval": "error",
 		"no-loop-func": "error",
@@ -27,10 +29,6 @@
 		"no-shadow": "error",
 		"no-spaced-func": "error",
 		"no-underscore-dangle": "error",
-		"no-unused-vars": ["error", {
-			"vars": "local",
-			"args": "after-used"
-		}],
 		"quotes": ["error", "single", {
 			"allowTemplateLiterals": true
 		}],
@@ -38,13 +36,19 @@
 		"semi-spacing": "error",
 		"space-infix-ops": "error",
 		"space-unary-ops": "error",
-		"strict": 0
-    },
-    "globals": {
-        "console": true,
-        "jQuery": true,
-        "$": true
-    },
+		"strict": 0,
+
+		// CM9 ESLinting
+		"no-undef": "error",
+		"no-unused-vars": "error"
+	},
+	"globals": {
+		"console": true,
+		"jQuery": true,
+		"$": true,
+		"expect":true,
+		"cy": true
+	},
 	"parserOptions": {
 		"sourceType": "module"
 	}

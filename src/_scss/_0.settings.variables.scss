@@ -1,6 +1,5 @@
 $fontsize-root: 16px;
 
-$sUnit: 16px;
 
 /**
  *  Colors
@@ -8,6 +7,17 @@ $sUnit: 16px;
 $cOrange: 			#e79422;
 
 
+/**
+ * SIZES
+ */
+$sUnit: 16px;
+$sGutter: 15px;
+$sGutterDouble: 30px;
 
-// Breakpoints
-$break-mobile:		320px;
+
+/**
+ * BREAKPOINTS
+ */
+$break-mobile-start: 375px;
+$break-tablet-start: 768px;
+$break-desktop-start: 1080px;

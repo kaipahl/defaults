@@ -1,3 +1,66 @@
+/*
+ *  MIXIN: foo-breakpoint()
+ *
+ *	$break-tablet-start: 768px;
+ *	$break-desktop-start: 1024px;
+ *	$break-desktop-hd-start: 1440px;
+ *
+ *	@mixin foo-breakpoint($media)
+ *  @params $media: mobile | tablet | desktop | desktophd | mobileTablet | tabletDesktop
+ *	@example  @include foo-breakpoint(tabletOnly) { width: 125px; }
+ */
+@mixin foo-breakpoint($media) {
+	@if $media == mobile {
+		@media only screen and ( max-width: ( $break-tablet-start - 1px ) ) {
+			@content;
+		}
+	}
+	@else if $media == tablet {
+		@media only screen and ( min-width: $break-tablet-start ) and ( max-width: ( $break-desktop-start - 1px ) ) {
+			@content;
+		}
+	}
+	@else if $media == desktop {
+		@media only screen and ( min-width: $break-desktop-start ) {
+			@content;
+		}
+	}
+	@else if $media == mobileTablet {
+		@media only screen and ( max-width: ( $break-desktop-start - 1px ) ) {
+			@content;
+		}
+	}
+	@else if $media == tabletDesktop {
+		@media only screen and ( min-width: $break-tablet-start ) {
+			@content;
+		}
+	}
+}
+
+
+
+/**
+ * @description Function to calculate the percentage of a col width
+ * With one parameter width 100% is based on 12 cols minus outer gutter -> 100% - gutter
+ * With two parameter width 100% is based on the second parameter ( col(3, 6) -> 50% - gutter ) minus outer gutter
+ * With the third parameter false width ignores outer gutter. 100% = 100%
+ *
+ * @example width: col-width(8);
+ * @example width: col-width(2, 6);
+ * @example width: col-width(2, 6, false);
+ */
+@function col-width($col, $colNumber: 12, $withGutter: true) {
+	$fluidWidth: (100% / $colNumber) * $col;
+	$result: $fluidWidth;
+
+	@if $withGutter == true {
+		$result: calc( #{$fluidWidth} - #{$sGutterDouble} );
+	}
+
+	@return $result;
+}
+
+
 
 /**
  * @description quick'n'dirty grid system
@@ -174,4 +237,46 @@ $colPadding: 1%;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+
+/**
+ * MIXIN: Accessibility stuff.
+ */
+@mixin screenreader-only {
+	/* stylelint-disable */
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	clip: rect( 0, 0, 0, 0 ) !important;
+	clip-path: inset( 100% ) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+	/* stylelint-enable */
+}
+
+%screenreader-only {
+	@include screenreader-only;
+}
+
+
+/**
+ * MIXIN: touch device detection
+ * @description: Somewhat problematic topic with many edge cases. So don't use it for
+ * important stuff that can break user experience!
+ * There is also an touch device detection in JS.
+ *
+ * More infos:
+ * - http://www.stucox.com/blog/you-cant-detect-a-touchscreen/
+ * - https://stackoverflow.com/questions/7838680/detecting-that-the-browser-has-no-mouse-and-is-touch-only/52854585#answer-52854585
+ * - https://dev.opera.com/articles/media-features/
+ * - Test example for matchMedia: https://patrickhlauke.github.io/touch/pointer-hover-any-pointer-any-hover/
+ */
+@mixin isTouchDevice {
+	@media ( any-pointer: coarse ) {
+		@content;
+	}
 }

@@ -3,7 +3,7 @@
 let fs = require('fs');
 let sass = require('sass');
 
-let outFile = 'dist/_css/foo.css';
+let outFile = 'public/_css/foo.css';
 
 let result = sass.renderSync({
 	file: 'src/_scss/foo.scss',

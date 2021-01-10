@@ -1,3 +1,11 @@
 /**
  * Definitions for font-faces and other typographic styles liek headlines, paragraphs…
  */
+
+
+@font-face {
+	font-family: 'Foo-Thin';
+	src: url('/_fonts/Foo-Thin.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}

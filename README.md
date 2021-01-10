@@ -2,7 +2,7 @@
 Default files like configs, settings oder grunt scripts as blueprint for project initializations
 
 
-## Rask Runner
+## Task Runner
 
 ### Trouble Shooting 
 

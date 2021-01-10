@@ -6,8 +6,11 @@
   "scripts": {
     "copy": "./_tasks/copy.js",
     "buildCss": "./_tasks/scss.js",
-    "buildPostcss": "postcss ./dist/_css/foo.css --use autoprefixer --map --replace",
-    "buildAll": "npm run buildCss && npm run buildPostcss"
+    "buildJs": "./_tasks/js.sh",
+    "buildPostcss": "postcss ./public/_css/foo.css --use autoprefixer --map --replace",
+    "buildAll": "npm run buildCss && npm run buildPostcss && npm run buildJs",
+    "watchCss": "watch 'npm run buildCss' ./src/_scss",
+    "watchJs": "watch 'npm run buildJs' ./src/_js"
   },
   "repository": {
     "type": "git",
@@ -22,12 +25,32 @@
     "url": "https://github.com/kaipahl/defaults/issues"
   },
   "homepage": "https://github.com/kaipahl/defaults",
+  "dependencies": {
+    "core-js": "^3.8.2",
+    "ev-emitter": "^2.1.0",
+    "expose-loader": "^1.0.3"
+  },
   "devDependencies": {
-    "autoprefixer": "^9.7.3",
-    "cpy": "^7.3.0",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/runtime": "^7.11.2",
+    "autoprefixer": "^10.2.1",
+    "babel-loader": "^8.1.0",
+    "cpy": "^8.1.1",
     "eslint": "^6.1.0",
-    "postcss-cli": "^6.1.3",
+    "eslint-loader": "^4.0.2",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
     "sass": "^1.23.7",
-    "stylelint": "^10.1.0"
+    "stylelint": "^13.8.0",
+    "watch": "^1.0.2",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
   }
 }

@@ -40,7 +40,7 @@
     "cpy": "^8.1.1",
     "eslint": "^6.1.0",
     "eslint-loader": "^4.0.2",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.10",
     "postcss-cli": "^8.3.1",
     "sass": "^1.23.7",
     "stylelint": "^13.8.0",

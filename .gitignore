@@ -78,3 +78,5 @@ node_modules
 .sass-cache
 /dist
 /public
+/npm-debug.log
+/public/

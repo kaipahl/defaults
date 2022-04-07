@@ -54,5 +54,13 @@
     "presets": [
       "@babel/preset-env"
     ]
-  }
+  },
+  "browserslist": [
+    "last 4 Chrome version",
+    "last 4 Firefox version",
+    "last 4 Edge version",
+    "last 3 Safari version",
+    "last 3 iOS version",
+    "Explorer >= 11"
+  ]
 }

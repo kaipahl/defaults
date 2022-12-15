@@ -41,7 +41,7 @@
     "cpy": "^8.1.1",
     "eslint": "^6.1.0",
     "eslint-loader": "^4.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "postcss": "^8.2.4",
     "postcss-cli": "^8.3.1",
     "sass": "^1.42.1",

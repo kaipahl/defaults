@@ -1,6 +1,10 @@
 function App() {
 
-  return ()
+  return (
+    <>
+      Inhalt
+    </>
+  )
 }
 
 export default App

@@ -1,3 +1,10 @@
+/**
+ * @description: Translation of pixel values into rems
+ */
+@function px-to-rem( $px: 12px, $base: 16px ) {
+  @return ($px / $base * 1rem);
+}
+
 /*
  *  MIXIN: foo-breakpoint()
  *

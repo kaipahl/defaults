@@ -58,35 +58,6 @@ HELPERS.throttle = function( fn, delay, scope ) {
 
 
 /**
- * @description This is a Polyfill for IE11 & Element.closest
- * Like jQuerys closest() it traverses the DOM beginning
- * **with the element himself** !
- *
- * @example $item.closest('.js-select-item');
- *
- */
-(function() {
-	const ElementPrototype = window.Element.prototype;
-
-	if ( typeof ElementPrototype.closest !== 'function' ) {
-
-		ElementPrototype.closest = function closest(selector) {
-			let element = this;
-			while (element && element.nodeType === 1) {
-				if (element.matches(selector)) {
-					return element;
-				}
-				element = element.parentNode;
-			}
-			return null;
-		};
-
-	}
-})();
-
-
-
-/**
  *
  * @param {Object.<string, string>} classTable
  * @returns {Object.<string, string>}

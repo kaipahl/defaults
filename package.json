@@ -45,10 +45,12 @@
     "watch": "^1.0.2"
   },
   "browserslist": [
-    "last 15 Chrome version",
-    "last 15 Firefox version",
-    "last 15 Edge version",
-    "last 3 Safari version",
-    "last 3 iOS version"
+    "iOS >= 16",
+    "Safari >= 16",
+    "Chrome >= 119",
+    "ChromeAndroid >= 119",
+    "Edge >= 119",
+    "Firefox >= 119",
+    "FirefoxAndroid >= 119"
   ]
 }

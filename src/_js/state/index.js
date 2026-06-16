@@ -1,4 +1,4 @@
-const HELPERS = require('../helpers').HELPERS;
+import { HELPERS } from '../helpers';
 
 export const STATE = {
 	viewport: ''
@@ -68,23 +68,6 @@ STATE.getViewport = function() {
 STATE.isTouchDevice = function() {
 	return window.matchMedia('(any-pointer: coarse)').matches;
 };
-
-
-/**
- * @description IE11 detection
- *
- * There is an undocumented bug in the IE11 implementation of TreeWalker
- * when using for text nodes instead of element nodes. Infos can only be
- * found in a Github repo https://github.com/webcomponents/webcomponentsjs/issues/556
- *
- * That bugs stops the running of JS of modules initialized after NOBR.
- *
- * @returns {boolean}
- */
-STATE.isIE11 = function() {
-	return (!!window.MSInputMethodContext) && (!!document.documentMode);
-};
-
 
 
 /**
